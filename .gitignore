@@ -1,0 +1,13 @@
+.DS_Store
+
+# Raw source material stays local.
+Fotos/
+Fotos.zip
+Videos/
+Videos 2/
+Videos.zip
+*.docx
+*.pdf
+
+# Local scratch/export files.
+*.log
