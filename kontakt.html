@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontakt & Spenden | Herz HD Stiftung</title>
+    <meta
+      name="description"
+      content="Kontakt zur Herz HD Stiftung in Heidelberg, Spendenkonto und Anfrageformular für Projekte, Kunst und Unterstützung."
+    />
+    <link rel="icon" href="assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400&family=Public+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+    <header class="site-header">
+      <a class="brand" href="index.html#top" aria-label="Herz HD Stiftung Startseite">
+        <img src="assets/images/logo.png" alt="Herz HD Stiftung" />
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="projekte.html">Projekte</a>
+        <a href="reiseberichte.html">Reiseberichte</a>
+        <a href="kunst.html">Kunst</a>
+        <a href="stiftung.html">Die Stiftung</a>
+        <a href="kontakt.html" aria-current="page">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="language-switch" aria-label="Sprache">
+          <a aria-current="page" href="#top">DE</a>
+          <a href="#sprache">EN</a>
+          <a href="#sprache">SN</a>
+        </div>
+        <a class="button button-primary" href="#spenden">Jetzt spenden</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="content-hero" id="top">
+        <div class="content-hero-media">
+          <img src="assets/images/partnership-kapnek.webp" alt="Persönliche Begegnung mit Partnerinnen in Simbabwe." />
+        </div>
+        <div class="content-hero-copy">
+          <p class="eyebrow">Kontakt</p>
+          <h1>Direkt helfen oder erst einmal sprechen.</h1>
+          <p>
+            Ob Spende, Projektfrage, Kunstinteresse oder ein persönliches Gespräch: Hier sind die
+            wichtigsten Wege zur Herz HD Stiftung gebündelt.
+          </p>
+          <div class="button-row">
+            <a class="button button-dark" href="#spenden">Spendenkonto</a>
+            <a class="button button-ghost-light" href="#kontaktformular">Formular öffnen</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kontaktformular">
+        <div class="section-inner contact-layout">
+          <aside class="contact-panel">
+            <img src="assets/images/school-meal.webp" alt="Kind mit warmer Schulmahlzeit." />
+            <div>
+              <p class="eyebrow">Herz HD Stiftung gGmbH</p>
+              <h2>Wir freuen uns über Ihre Nachricht.</h2>
+              <address>
+                Burgstraße 52<br />
+                D-69121 Heidelberg<br />
+                Tel: <a href="tel:+4962216510799">06221 - 6 51 07 99</a><br />
+                <a href="mailto:info@herzhdstiftung.de">info@herzhdstiftung.de</a>
+              </address>
+            </div>
+          </aside>
+
+          <form
+            class="contact-form"
+            action="mailto:info@herzhdstiftung.de?subject=Kontakt%20Herz%20HD%20Stiftung"
+            method="post"
+            enctype="text/plain"
+          >
+            <h2>Nachricht senden</h2>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input id="name" name="Name" autocomplete="name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">E-Mail</label>
+                <input id="email" name="E-Mail" type="email" autocomplete="email" required />
+              </div>
+              <div class="form-field form-field-full">
+                <label for="anliegen">Anliegen</label>
+                <select id="anliegen" name="Anliegen">
+                  <option>Spende</option>
+                  <option>Projektfrage</option>
+                  <option>Kunst</option>
+                  <option>Reisebericht</option>
+                  <option>Allgemein</option>
+                </select>
+              </div>
+              <div class="form-field form-field-full">
+                <label for="nachricht">Nachricht</label>
+                <textarea id="nachricht" name="Nachricht" required></textarea>
+              </div>
+            </div>
+            <div class="button-row">
+              <button class="button button-primary" type="submit">
+                Nachricht vorbereiten
+                <i data-lucide="send"></i>
+              </button>
+            </div>
+            <p class="source-note">
+              Das Formular öffnet aktuell das E-Mail-Programm. Für den Livegang kann es später an
+              Webflow, ein CRM oder einen Formularservice angebunden werden.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section project-cta" id="spenden">
+        <div class="section-inner split">
+          <div class="content-block content-block-dark">
+            <p class="eyebrow">Spenden</p>
+            <h2>Jeder Euro kommt direkt in den Projekten an.</h2>
+            <p>
+              Einzelspenden oder monatliche Daueraufträge ab 20 Euro geben Vorschulkindern
+              Ausbildung, eine tägliche Mahlzeit und damit Zukunft. Verwaltung, Büro und Reisen
+              werden privat getragen.
+            </p>
+          </div>
+          <div class="bank-card">
+            <p class="eyebrow">Bankverbindung</p>
+            <h2>Herz HD Stiftung gGmbH</h2>
+            <address>
+              Volksbank Kurpfalz eG, Heidelberg<br />
+              IBAN: DE78 6709 2300 0033 2238 20<br />
+              BIC: GENODE61WNM
+            </address>
+            <div class="button-row">
+              <a class="button button-dark" href="mailto:info@herzhdstiftung.de?subject=Spende%20Herz%20HD%20Stiftung">Spende ankündigen</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section art-feature">
+        <div class="section-inner page-grid">
+          <article class="page-card">
+            <img src="assets/images/garden-action.webp" alt="Arbeit im Schulgarten." />
+            <div>
+              <span class="badge badge-green">Projekt fördern</span>
+              <h3>Wasser, Gärten und Ernährung.</h3>
+              <p>Die Stiftung kann Spenden dort einsetzen, wo der nächste konkrete Schritt möglich ist.</p>
+            </div>
+          </article>
+
+          <article class="page-card">
+            <img src="assets/images/sculpture.webp" alt="Shona-Skulptur aus Simbabwe." />
+            <div>
+              <span class="badge">Kunst anfragen</span>
+              <h3>Interesse an Werken oder Begegnungen?</h3>
+              <p>Der Kunstbereich kann später mit Anfragen, Ausstellungsterminen oder Werkinfos erweitert werden.</p>
+            </div>
+          </article>
+
+          <article class="page-card">
+            <img src="assets/images/team-on-site.webp" alt="Stiftungsteam vor Ort in Simbabwe." />
+            <div>
+              <span class="badge badge-green">Austausch</span>
+              <h3>Persönliches Gespräch vereinbaren.</h3>
+              <p>Für größere Spenden, Kooperationen oder Rückfragen ist der direkte Kontakt der beste Weg.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section language-note" id="sprache">
+        <div class="section-inner split split-compact">
+          <div>
+            <p class="eyebrow">International</p>
+            <h2>Kontakt soll auch für Partner zugänglich sein.</h2>
+          </div>
+          <p>
+            Eine spätere englische und Shona-Fassung kann diesen Bereich für Partner in Simbabwe
+            und internationale Unterstützer leichter nutzbar machen.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="kontakt">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Herz HD Stiftung" />
+          <p>
+            Jeder Euro kommt 1:1 an. Einzelspenden oder monatliche Daueraufträge ab 20 Euro geben
+            Vorschulkindern Ausbildung, eine tägliche Mahlzeit und damit Zukunft.
+          </p>
+        </div>
+
+        <div>
+          <h2>Helfen Sie jetzt.</h2>
+          <address>
+            Volksbank Kurpfalz eG, Heidelberg<br />
+            IBAN: DE78 6709 2300 0033 2238 20<br />
+            BIC: GENODE61WNM
+          </address>
+        </div>
+
+        <div>
+          <h2>Kontakt</h2>
+          <address>
+            Herz HD Stiftung gGmbH<br />
+            Burgstraße 52<br />
+            D-69121 Heidelberg<br />
+            Tel: 06221 - 6 51 07 99<br />
+            <a href="mailto:info@herzhdstiftung.de">info@herzhdstiftung.de</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Herz HD Stiftung. Alle Rechte vorbehalten.</span>
+        <div>
+          <a href="https://www.herzhdstiftung.de/datenschutzerklarung/">Datenschutz</a>
+          <a href="https://www.herzhdstiftung.de/impressum/">Impressum</a>
+          <a href="#kontaktformular">Kontaktformular</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

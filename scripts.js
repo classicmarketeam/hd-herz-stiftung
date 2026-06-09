@@ -48,6 +48,25 @@ document.querySelectorAll(".site-nav a, .header-actions a").forEach((link) => {
   });
 });
 
+function alignHashTarget() {
+  if (!window.location.hash) return;
+  const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+  if (!target) return;
+  const root = document.documentElement;
+  const previousScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  target.scrollIntoView({ block: "start" });
+  root.style.scrollBehavior = previousScrollBehavior;
+}
+
+window.addEventListener("load", () => {
+  window.setTimeout(alignHashTarget, 120);
+});
+
+window.addEventListener("hashchange", () => {
+  window.setTimeout(alignHashTarget, 0);
+});
+
 donationRange?.addEventListener("input", (event) => {
   updateDonationCopy(Number(event.target.value));
 });
