@@ -1,4 +1,5 @@
 const header = document.querySelector(".site-header");
+const brandLink = document.querySelector(".brand");
 const navToggle = document.querySelector(".nav-toggle");
 const donationRange = document.querySelector("#donationRange");
 const donationValue = document.querySelector("#donationValue");
@@ -24,6 +25,24 @@ if (window.lucide) {
   window.addEventListener("load", () => window.lucide?.createIcons());
 }
 
+function updateHeaderState() {
+  header?.classList.toggle("is-scrolled", window.scrollY > 12);
+}
+
+updateHeaderState();
+window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+function closeNavigation() {
+  header?.classList.remove("nav-open");
+  navToggle?.setAttribute("aria-expanded", "false");
+  navToggle?.setAttribute("aria-label", "Menü öffnen");
+  const icon = navToggle?.querySelector("svg, i");
+  if (icon) {
+    icon.outerHTML = '<i data-lucide="menu"></i>';
+    window.lucide?.createIcons();
+  }
+}
+
 navToggle?.addEventListener("click", () => {
   const isOpen = header.classList.toggle("nav-open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -35,21 +54,32 @@ navToggle?.addEventListener("click", () => {
   }
 });
 
+brandLink?.addEventListener("click", (event) => {
+  const targetUrl = new URL(brandLink.href, window.location.href);
+  const isIndexPath = (path) => path.endsWith("/") || path.endsWith("/index.html");
+
+  if (isIndexPath(window.location.pathname) && isIndexPath(targetUrl.pathname)) {
+    event.preventDefault();
+    closeNavigation();
+    window.history.replaceState(null, "", targetUrl.pathname + targetUrl.search);
+    window.scrollTo({ top: 0, behavior: "auto" });
+    updateHeaderState();
+  }
+});
+
 document.querySelectorAll(".site-nav a, .header-actions a").forEach((link) => {
   link.addEventListener("click", () => {
-    header.classList.remove("nav-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    navToggle?.setAttribute("aria-label", "Menü öffnen");
-    const icon = navToggle?.querySelector("svg, i");
-    if (icon) {
-      icon.outerHTML = '<i data-lucide="menu"></i>';
-      window.lucide?.createIcons();
-    }
+    closeNavigation();
   });
 });
 
 function alignHashTarget() {
   if (!window.location.hash) return;
+  if (window.location.hash === "#top") {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    updateHeaderState();
+    return;
+  }
   const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
   if (!target) return;
   const root = document.documentElement;

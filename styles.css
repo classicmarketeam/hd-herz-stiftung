@@ -1,13 +1,14 @@
 :root {
-  --orange: #ff6a00;
-  --orange-dark: #cc5400;
-  --brown: #4c1f00;
-  --brown-dark: #4c1f00;
+  --orange: #f9c642;
+  --orange-dark: #b42318;
+  --brown: #d92d20;
+  --brown-dark: #b42318;
   --cream: #f5ecdd;
   --cream-light: #faf5ee;
   --green: #027a48;
   --yellow: #f9c642;
   --red: #d92d20;
+  --red-dark: #b42318;
   --ink: #191919;
   --white: #ffffff;
   --border: #dddddd;
@@ -26,6 +27,7 @@ html {
 
 body {
   margin: 0;
+  padding-top: 110px;
   background: var(--cream);
   color: var(--ink);
   font-family: var(--body);
@@ -46,12 +48,12 @@ a {
 }
 
 a:hover {
-  color: var(--orange);
+  color: var(--red-dark);
 }
 
 :focus-visible {
   outline: 0;
-  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.32);
+  box-shadow: 0 0 0 3px rgba(217, 45, 32, 0.32);
 }
 
 .skip-link {
@@ -71,21 +73,37 @@ a:hover {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   z-index: 20;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  min-height: 96px;
-  padding: 10px 40px;
+  min-height: 110px;
+  padding: 16px 40px;
   background: var(--brown);
   color: var(--white);
+  box-shadow: none;
+  transition: min-height 180ms ease, padding 180ms ease, box-shadow 180ms ease;
+}
+
+.site-header.is-scrolled {
+  min-height: 78px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  box-shadow: 0 10px 26px rgba(25, 25, 25, 0.14);
 }
 
 .brand img {
-  width: 108px;
+  width: 118px;
   height: auto;
+  transition: width 180ms ease;
+}
+
+.site-header.is-scrolled .brand img {
+  width: 96px;
 }
 
 .site-nav {
@@ -106,11 +124,13 @@ a:hover {
 
 .site-nav a:hover {
   background: rgba(255, 255, 255, 0.1);
-  color: var(--yellow);
+  color: var(--white);
+  box-shadow: inset 0 -3px 0 var(--yellow);
 }
 
 .site-nav a[aria-current="page"] {
-  color: var(--yellow);
+  color: var(--white);
+  box-shadow: inset 0 -3px 0 var(--yellow);
 }
 
 .header-actions {
@@ -138,7 +158,7 @@ a:hover {
 
 .language-switch a[aria-current="page"] {
   background: var(--yellow);
-  color: var(--brown-dark);
+  color: var(--ink);
 }
 
 .nav-toggle {
@@ -174,13 +194,13 @@ a:hover {
 }
 
 .button-primary {
-  background: var(--orange);
-  color: var(--white);
+  background: var(--yellow);
+  color: var(--ink);
 }
 
 .button-primary:hover {
-  background: var(--orange-dark);
-  color: var(--white);
+  background: #e0ae28;
+  color: var(--ink);
 }
 
 .button-dark {
@@ -190,7 +210,7 @@ a:hover {
 
 .button-dark:hover,
 .button-secondary:hover {
-  background: var(--orange-dark);
+  background: var(--red-dark);
   color: var(--white);
 }
 
@@ -200,13 +220,13 @@ a:hover {
 }
 
 .button-ghost-light {
-  border: 2px solid rgba(255, 255, 255, 0.78);
-  color: var(--white);
+  border: 2px solid rgba(180, 35, 24, 0.72);
+  color: var(--ink);
 }
 
 .button-ghost-light:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--white);
+  background: rgba(180, 35, 24, 0.1);
+  color: var(--ink);
 }
 
 .button-row {
@@ -253,7 +273,7 @@ a:hover {
   justify-content: center;
   min-width: 0;
   padding: 72px;
-  color: var(--white);
+  color: var(--ink);
 }
 
 .hero-copy h1,
@@ -266,14 +286,20 @@ a:hover {
 
 .hero-copy h1 {
   max-width: 620px;
-  color: var(--white);
-  font-size: 84px;
+  color: var(--ink);
+  font-size: 68px;
   line-height: 1.1;
 }
 
 h1,
 h2,
-h3,
+h3 {
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  text-wrap: wrap;
+}
+
 p,
 a,
 strong {
@@ -288,7 +314,7 @@ strong {
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--orange);
+  color: var(--red-dark);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
@@ -296,7 +322,7 @@ strong {
 }
 
 .hero .eyebrow {
-  color: var(--brown-dark);
+  color: var(--ink);
 }
 
 .principle-strip {
@@ -342,6 +368,92 @@ strong {
   background: var(--cream-light);
 }
 
+.zimbabwe-story {
+  background: var(--cream);
+}
+
+.zimbabwe-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 42px;
+  align-items: stretch;
+}
+
+.zimbabwe-image {
+  overflow: hidden;
+  min-height: 560px;
+  border-radius: 8px;
+}
+
+.zimbabwe-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  object-fit: cover;
+}
+
+.zimbabwe-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  border-radius: 8px;
+  background: var(--red);
+  color: var(--white);
+}
+
+.zimbabwe-panel .eyebrow {
+  color: var(--white);
+}
+
+.zimbabwe-panel h2 {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.zimbabwe-panel p {
+  margin: 22px 0 0;
+}
+
+.zimbabwe-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.zimbabwe-points article {
+  min-height: 170px;
+  padding: 22px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.zimbabwe-points article:nth-child(2) {
+  background: var(--green);
+}
+
+.zimbabwe-points article:nth-child(3) {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.zimbabwe-points h3 {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.zimbabwe-points p {
+  margin: 12px 0 0;
+  font-size: 15px;
+}
+
 .flag-panel {
   position: relative;
   overflow: hidden;
@@ -370,7 +482,7 @@ strong {
   display: block;
   padding: 16px;
   border-radius: 8px;
-  background: var(--brown-dark);
+  background: var(--green);
   color: var(--white);
   font-size: 15px;
   font-weight: 700;
@@ -378,11 +490,13 @@ strong {
 }
 
 .mini-facts span:nth-child(2) {
-  background: var(--green);
+  background: var(--yellow);
+  color: var(--ink);
 }
 
 .mini-facts span:nth-child(3) {
   background: var(--red);
+  color: var(--white);
 }
 
 .section {
@@ -392,6 +506,7 @@ strong {
 
 #top,
 #sprache,
+#simbabwe,
 #kontakt {
   scroll-margin-top: 88px;
 }
@@ -402,7 +517,8 @@ strong {
 #partner,
 #projektuebersicht,
 #transparenz,
-#unterstuetzen {
+#unterstuetzen,
+#schulkarte {
   scroll-margin-top: 148px;
 }
 
@@ -420,7 +536,7 @@ strong {
 .reports-intro h2,
 .art-copy h2,
 .language-note h2 {
-  font-size: 60px;
+  font-size: 52px;
   line-height: 1.2;
 }
 
@@ -458,7 +574,7 @@ strong {
   flex-direction: column;
   justify-content: space-between;
   padding: 32px;
-  border: 1px solid rgba(125, 73, 53, 0.18);
+  border: 1px solid rgba(180, 35, 24, 0.18);
   border-radius: 8px;
   background: var(--cream-light);
 }
@@ -541,17 +657,23 @@ strong {
   width: 58%;
   height: 330px;
   object-fit: cover;
-  border: 10px solid var(--orange);
+  border: 10px solid var(--yellow);
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
 .content-block {
-  color: var(--white);
+  color: var(--ink);
 }
 
 .content-block .eyebrow {
-  color: var(--brown-dark);
+  color: var(--red-dark);
+}
+
+.water-story .content-block .eyebrow,
+.project-deep-dive .content-block .eyebrow,
+.project-cta .content-block .eyebrow {
+  color: var(--ink);
 }
 
 .check-list {
@@ -598,7 +720,7 @@ strong {
   align-items: center;
   gap: 8px;
   margin-top: 28px;
-  color: var(--orange-dark);
+  color: var(--red-dark);
   font-size: 16px;
   font-weight: 700;
 }
@@ -676,14 +798,14 @@ strong {
   flex-direction: column;
   justify-content: space-between;
   padding: 28px;
-  border: 1px solid rgba(125, 73, 53, 0.22);
+  border: 1px solid rgba(180, 35, 24, 0.22);
   border-radius: 8px;
   background: var(--cream-light);
 }
 
 .donation-card-head span {
   display: block;
-  color: var(--brown);
+  color: var(--red-dark);
   font-size: 14px;
   font-weight: 700;
 }
@@ -711,11 +833,11 @@ strong {
   padding: 32px;
   border-radius: 8px;
   background: var(--orange);
-  color: var(--white);
+  color: var(--ink);
 }
 
 .donation-calculator .eyebrow {
-  color: var(--brown-dark);
+  color: var(--ink);
 }
 
 .donation-calculator h3 {
@@ -755,7 +877,7 @@ strong {
 }
 
 .light .eyebrow {
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .principle-cards {
@@ -786,7 +908,7 @@ strong {
 .principle-cards svg {
   width: 30px;
   height: 30px;
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .principle-cards h3,
@@ -823,12 +945,12 @@ strong {
   display: block;
   border-radius: 8px;
   background: var(--cream);
-  border: 1px solid rgba(125, 73, 53, 0.18);
+  border: 1px solid rgba(180, 35, 24, 0.18);
 }
 
 .project-card:hover {
   color: var(--ink);
-  border-color: rgba(255, 106, 0, 0.45);
+  border-color: rgba(217, 45, 32, 0.45);
 }
 
 .project-card-featured {
@@ -839,6 +961,10 @@ strong {
   width: 100%;
   height: 260px;
   object-fit: cover;
+}
+
+.project-card img.image-focus-top {
+  object-position: 50% top;
 }
 
 .project-card-featured img {
@@ -858,14 +984,17 @@ strong {
   background: var(--orange);
   color: var(--white);
   font-size: 14px;
+  font-weight: 700;
 }
 
 .badge-green {
   background: var(--green);
+  color: var(--white);
 }
 
 .badge-red {
   background: var(--red);
+  color: var(--white);
 }
 
 .videos {
@@ -921,7 +1050,7 @@ strong {
   overflow: hidden;
   border-radius: 8px;
   background: var(--cream);
-  border: 1px solid rgba(125, 73, 53, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.16);
 }
 
 .report-card img {
@@ -991,7 +1120,7 @@ strong {
 }
 
 .language-note .eyebrow {
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .split-compact {
@@ -1077,18 +1206,16 @@ strong {
   justify-content: center;
   min-width: 0;
   padding: 72px;
-  color: var(--white);
+  color: var(--ink);
 }
 
 .subpage-hero-copy h1 {
   max-width: 760px;
   margin: 0;
   font-family: var(--heading);
-  font-size: 64px;
+  font-size: 58px;
   font-weight: 400;
   line-height: 1.1;
-  overflow-wrap: anywhere;
-  hyphens: auto;
 }
 
 .subpage-hero-copy p:not(.eyebrow) {
@@ -1097,19 +1224,19 @@ strong {
 }
 
 .subpage-hero-copy .eyebrow {
-  color: var(--brown-dark);
+  color: var(--ink);
 }
 
 .page-subnav {
   position: sticky;
-  top: 96px;
+  top: 78px;
   z-index: 12;
   display: flex;
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
   background: var(--cream-light);
-  border-bottom: 1px solid rgba(125, 73, 53, 0.18);
+  border-bottom: 1px solid rgba(217, 45, 32, 0.18);
 }
 
 .page-subnav a {
@@ -1118,14 +1245,14 @@ strong {
   align-items: center;
   padding: 8px 14px;
   border-radius: 6px;
-  color: var(--brown-dark);
+  color: var(--red-dark);
   font-size: 15px;
   font-weight: 700;
 }
 
 .page-subnav a:hover {
-  background: rgba(255, 106, 0, 0.12);
-  color: var(--orange-dark);
+  background: rgba(249, 198, 66, 0.38);
+  color: var(--red-dark);
 }
 
 .project-foundation {
@@ -1144,11 +1271,11 @@ strong {
   padding: 30px;
   border-radius: 8px;
   background: var(--cream);
-  border: 1px solid rgba(125, 73, 53, 0.18);
+  border: 1px solid rgba(180, 35, 24, 0.18);
 }
 
 .focus-card span {
-  color: var(--orange-dark);
+  color: var(--red-dark);
   font-size: 14px;
   font-weight: 700;
 }
@@ -1176,7 +1303,7 @@ strong {
 }
 
 .focus-card-green span {
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .focus-card-yellow {
@@ -1188,14 +1315,14 @@ strong {
 }
 
 .content-block-dark {
-  color: var(--white);
+  color: var(--ink);
 }
 
 .text-panel {
   padding: 34px;
   border-radius: 8px;
   background: var(--cream-light);
-  border: 1px solid rgba(76, 31, 0, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.16);
 }
 
 .text-panel p {
@@ -1203,7 +1330,7 @@ strong {
 }
 
 .text-panel .check-list svg {
-  color: var(--orange-dark);
+  color: var(--red-dark);
 }
 
 .text-panel h3 {
@@ -1215,7 +1342,7 @@ strong {
 }
 
 .text-panel strong {
-  color: var(--brown-dark);
+  color: var(--red-dark);
 }
 
 .project-media-panel {
@@ -1250,6 +1377,118 @@ strong {
 
 .project-before-after {
   background: var(--cream);
+}
+
+.school-map-section {
+  background: var(--cream);
+}
+
+.school-map-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.school-map {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  min-height: 560px;
+  border-radius: 8px;
+  background: #eadbbf;
+  border: 1px solid rgba(180, 35, 24, 0.16);
+  box-shadow: var(--shadow);
+}
+
+.school-map img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  opacity: 1;
+}
+
+.school-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(217, 45, 32, 0.08));
+  pointer-events: none;
+}
+
+.map-pin {
+  position: absolute;
+  z-index: 1;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  pointer-events: none;
+  box-shadow: 0 10px 24px rgba(25, 25, 25, 0.25);
+}
+
+.map-pin::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+.map-note {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 8px 20px rgba(25, 25, 25, 0.1);
+}
+
+.school-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.school-list article {
+  padding: 22px;
+  border-radius: 8px;
+  background: var(--cream-light);
+  border: 1px solid rgba(217, 45, 32, 0.18);
+}
+
+.school-list h3 {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.school-list p {
+  margin: 10px 0 0;
+  font-size: 16px;
 }
 
 .project-track {
@@ -1298,7 +1537,7 @@ strong {
 }
 
 .honesty-panel .eyebrow {
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .honesty-panel h2,
@@ -1326,7 +1565,7 @@ strong {
   flex-direction: column;
   border-radius: 8px;
   background: var(--cream);
-  border: 1px solid rgba(125, 73, 53, 0.18);
+  border: 1px solid rgba(180, 35, 24, 0.18);
 }
 
 .detail-card-featured {
@@ -1366,12 +1605,12 @@ strong {
   justify-content: space-between;
   gap: 18px;
   padding-top: 10px;
-  border-top: 1px solid rgba(125, 73, 53, 0.18);
+  border-top: 1px solid rgba(180, 35, 24, 0.18);
   font-size: 14px;
 }
 
 .detail-card dt {
-  color: var(--brown);
+  color: var(--red-dark);
   font-weight: 700;
 }
 
@@ -1401,7 +1640,7 @@ strong {
 .transparency-grid svg {
   width: 30px;
   height: 30px;
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .transparency-grid p {
@@ -1418,11 +1657,11 @@ strong {
   grid-template-columns: 1fr auto;
   gap: 42px;
   align-items: center;
-  color: var(--white);
+  color: var(--ink);
 }
 
 .cta-band .eyebrow {
-  color: var(--brown-dark);
+  color: var(--ink);
 }
 
 .cta-band p {
@@ -1451,22 +1690,20 @@ strong {
   justify-content: center;
   min-width: 0;
   padding: 72px;
-  color: var(--white);
+  color: var(--ink);
 }
 
 .content-hero-copy .eyebrow {
-  color: var(--brown-dark);
+  color: var(--ink);
 }
 
 .content-hero-copy h1 {
   max-width: 760px;
   margin: 0;
   font-family: var(--heading);
-  font-size: 64px;
+  font-size: 58px;
   font-weight: 400;
   line-height: 1.1;
-  overflow-wrap: anywhere;
-  hyphens: auto;
 }
 
 .content-hero-copy p:not(.eyebrow) {
@@ -1484,7 +1721,7 @@ strong {
   overflow: hidden;
   border-radius: 8px;
   background: var(--cream-light);
-  border: 1px solid rgba(76, 31, 0, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.16);
 }
 
 .page-card img {
@@ -1522,12 +1759,12 @@ strong {
   padding: 28px;
   border-radius: 8px;
   background: var(--cream-light);
-  border: 1px solid rgba(76, 31, 0, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.16);
 }
 
 .timeline-item time,
 .timeline-item span {
-  color: var(--orange-dark);
+  color: var(--red-dark);
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1547,7 +1784,7 @@ strong {
 }
 
 .quote-band {
-  background: var(--brown-dark);
+  background: var(--red);
   color: var(--white);
 }
 
@@ -1591,7 +1828,7 @@ strong {
 }
 
 .gallery-grid-wide img:first-child,
-.gallery-grid-wide img:nth-child(5) {
+.gallery-grid-wide img:nth-child(6) {
   grid-column: span 2;
 }
 
@@ -1605,7 +1842,7 @@ strong {
   overflow: hidden;
   border-radius: 8px;
   background: var(--cream-light);
-  border: 1px solid rgba(76, 31, 0, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.16);
 }
 
 .profile-card img {
@@ -1646,7 +1883,7 @@ strong {
 .contact-form {
   border-radius: 8px;
   background: var(--cream-light);
-  border: 1px solid rgba(76, 31, 0, 0.16);
+  border: 1px solid rgba(180, 35, 24, 0.16);
 }
 
 .contact-panel {
@@ -1711,7 +1948,7 @@ strong {
   width: 100%;
   min-height: 48px;
   padding: 10px 12px;
-  border: 1px solid rgba(76, 31, 0, 0.28);
+  border: 1px solid rgba(180, 35, 24, 0.28);
   border-radius: 6px;
   background: var(--white);
   color: var(--ink);
@@ -1732,7 +1969,7 @@ strong {
 }
 
 .bank-card .eyebrow {
-  color: var(--yellow);
+  color: var(--white);
 }
 
 .source-note {
@@ -1746,7 +1983,12 @@ strong {
   }
 
   .site-header {
-    padding: 10px 24px;
+    padding: 14px 24px;
+  }
+
+  .site-header.is-scrolled {
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
 
   .site-nav {
@@ -1770,15 +2012,15 @@ strong {
   }
 
   .hero-copy h1 {
-    font-size: 60px;
+    font-size: 56px;
   }
 
   .subpage-hero-copy h1 {
-    font-size: 60px;
+    font-size: 54px;
   }
 
   .content-hero-copy h1 {
-    font-size: 56px;
+    font-size: 52px;
   }
 
   .section-intro h2,
@@ -1788,8 +2030,9 @@ strong {
   .video-copy h2,
   .reports-intro h2,
   .art-copy h2,
-  .language-note h2 {
-    font-size: 48px;
+  .language-note h2,
+  .zimbabwe-panel h2 {
+    font-size: 44px;
   }
 
   .impact-grid,
@@ -1798,7 +2041,8 @@ strong {
   .project-detail-grid,
   .transparency-grid,
   .page-grid,
-  .profile-grid {
+  .profile-grid,
+  .zimbabwe-points {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1825,10 +2069,19 @@ strong {
     grid-column: span 2;
     padding-right: 0;
   }
+
+  .zimbabwe-points article:first-child {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 900px) {
+  body {
+    padding-top: 96px;
+  }
+
   .site-header {
+    min-height: 96px;
     grid-template-columns: auto auto;
     justify-content: space-between;
   }
@@ -1875,7 +2128,9 @@ strong {
   .honesty-panel,
   .cta-band,
   .quote-band .section-inner,
-  .contact-layout {
+  .contact-layout,
+  .zimbabwe-grid,
+  .school-map-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1979,8 +2234,17 @@ strong {
   .project-media-panel img,
   .page-card img,
   .profile-card img,
-  .contact-panel img {
-    height: 340px;
+  .contact-panel img,
+  .zimbabwe-image,
+  .zimbabwe-image img,
+  .school-map,
+  .school-map img {
+    height: auto;
+    min-height: 420px;
+  }
+
+  .school-map img {
+    height: 100%;
   }
 
   .project-duo {
@@ -1999,20 +2263,31 @@ strong {
 
 @media (max-width: 620px) {
   body {
+    padding-top: 86px;
     font-size: 16px;
   }
 
   .site-header {
-    min-height: 82px;
-    padding: 10px 16px;
+    min-height: 86px;
+    padding: 12px 16px;
+  }
+
+  .site-header.is-scrolled {
+    min-height: 74px;
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
 
   .page-subnav {
-    top: 82px;
+    top: 74px;
   }
 
   .brand img {
-    width: 92px;
+    width: 96px;
+  }
+
+  .site-header.is-scrolled .brand img {
+    width: 86px;
   }
 
   .header-actions {
@@ -2069,7 +2344,8 @@ strong {
   .video-copy h2,
   .reports-intro h2,
   .art-copy h2,
-  .language-note h2 {
+  .language-note h2,
+  .zimbabwe-panel h2 {
     font-size: 38px;
   }
 
@@ -2082,12 +2358,17 @@ strong {
   .page-grid,
   .profile-grid,
   .gallery-grid,
-  .form-grid {
+  .form-grid,
+  .zimbabwe-points {
     grid-template-columns: 1fr;
   }
 
+  .zimbabwe-points article:first-child {
+    grid-column: auto;
+  }
+
   .gallery-grid-wide img:first-child,
-  .gallery-grid-wide img:nth-child(5) {
+  .gallery-grid-wide img:nth-child(6) {
     grid-column: auto;
   }
 
@@ -2198,7 +2479,21 @@ strong {
 
   .contact-form,
   .bank-card,
-  .text-panel {
+  .text-panel,
+  .zimbabwe-panel {
     padding: 24px;
+  }
+
+  .map-pin {
+    min-height: 32px;
+    max-width: 180px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .map-note {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
   }
 }
