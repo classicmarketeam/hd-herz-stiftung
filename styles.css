@@ -1837,10 +1837,15 @@ strong {
   display: grid;
   grid-template-columns: 180px 1fr;
   gap: 32px;
+  min-width: 0;
   padding: 28px;
   border-radius: 8px;
   background: var(--cream-light);
   border: 1px solid rgba(180, 35, 24, 0.16);
+}
+
+.timeline-item > div {
+  min-width: 0;
 }
 
 .timeline-item time,
@@ -2335,6 +2340,7 @@ strong {
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 24px;
   }
 
   .quote-band blockquote {
