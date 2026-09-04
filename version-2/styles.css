@@ -236,6 +236,87 @@ a:hover {
   margin-top: 32px;
 }
 
+html.preview-locked,
+html.preview-locked body {
+  overflow: hidden;
+}
+
+html.preview-locked .site-header,
+html.preview-locked main,
+html.preview-locked .site-footer {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.preview-lock-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(245, 236, 221, 0.78);
+  backdrop-filter: blur(12px);
+}
+
+.preview-lock-card {
+  width: min(100%, 430px);
+  margin: 0;
+  padding: 34px;
+  border: 1px solid rgba(180, 35, 24, 0.2);
+  border-top: 8px solid var(--red);
+  border-radius: 8px;
+  background: var(--cream-light);
+  box-shadow: var(--shadow);
+}
+
+.preview-lock-card img {
+  width: 104px;
+  height: auto;
+  margin-bottom: 26px;
+}
+
+.preview-lock-card h1 {
+  margin: 0;
+  font-family: var(--heading);
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.preview-lock-card p:not(.eyebrow) {
+  margin: 16px 0 0;
+  font-size: 17px;
+}
+
+.preview-lock-card label {
+  display: block;
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.preview-lock-input {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid rgba(180, 35, 24, 0.28);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+.preview-lock-error {
+  min-height: 24px;
+  margin: 8px 0 12px;
+  color: var(--red-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
