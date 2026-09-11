@@ -203,15 +203,11 @@ a:hover {
 
 .button-primary {
   background: var(--terracotta);
-  color: var(--accent-ink);
+  color: var(--white);
 }
 
 .button-primary:hover {
   background: #d69175;
-  color: var(--accent-ink);
-}
-
-.header-actions .button-primary {
   color: var(--white);
 }
 
@@ -1085,7 +1081,7 @@ strong {
 }
 
 .badge-green {
-  background: #306f6d;
+  background: var(--petrol);
   color: var(--white);
 }
 
@@ -1785,16 +1781,30 @@ strong {
   object-fit: cover;
 }
 
+.content-hero-contact {
+  display: block;
+  min-height: 0;
+  padding: 64px 0 0;
+}
+
 .content-hero-contact .content-hero-media {
   position: relative;
   min-width: 0;
-  min-height: 560px;
+  min-height: 480px;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .content-hero-contact .content-hero-media img {
   position: absolute;
   inset: 0;
+  min-height: 0;
   object-position: 50% 20%;
+}
+
+.content-hero-contact .content-hero-copy {
+  order: -1;
+  padding: 32px;
 }
 
 .content-hero-copy {
@@ -2000,11 +2010,27 @@ strong {
   font-size: 16px;
 }
 
-.contact-layout {
+.contact-page .section {
+  padding-block: 64px;
+}
+
+.contact-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: stretch;
+}
+
+.contact-grid > * {
+  min-width: 0;
+}
+
+.contact-page #spenden .content-block {
+  padding: 32px;
+}
+
+.contact-page #spenden .eyebrow {
+  margin: 0 0 12px;
 }
 
 .contact-panel,
@@ -2015,6 +2041,8 @@ strong {
 }
 
 .contact-panel {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -2025,6 +2053,10 @@ strong {
 }
 
 .contact-panel img.image-contact-family {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 8 / 5;
+  flex-shrink: 0;
   object-position: 50% 15%;
 }
 
@@ -2039,7 +2071,7 @@ strong {
 }
 
 .contact-panel div {
-  padding: 30px;
+  padding: 32px;
 }
 
 .contact-panel h2,
@@ -2060,7 +2092,18 @@ strong {
 }
 
 .contact-form {
+  display: flex;
+  flex-direction: column;
   padding: 32px;
+}
+
+.contact-form .form-grid {
+  flex: 1;
+  grid-template-rows: auto auto minmax(182px, 1fr);
+}
+
+.form-field-message {
+  grid-template-rows: auto minmax(150px, 1fr);
 }
 
 .form-grid {
@@ -2360,7 +2403,7 @@ img.image-contain,
   .honesty-panel,
   .cta-band,
   .quote-band .section-inner,
-  .contact-layout,
+  .contact-grid,
   .zimbabwe-grid,
   .school-map-grid {
     grid-template-columns: 1fr;
@@ -2383,6 +2426,10 @@ img.image-contain,
   .content-hero-contact .content-hero-media {
     height: 420px;
     min-height: 0;
+  }
+
+  .content-hero-contact .content-hero-copy {
+    order: 0;
   }
 
   .hero-copy,
@@ -2490,6 +2537,31 @@ img.image-contain,
 }
 
 @media (max-width: 620px) {
+  .content-hero-contact {
+    padding-top: 32px;
+  }
+
+  .contact-page .section {
+    padding-block: 40px;
+  }
+
+  .contact-grid {
+    gap: 24px;
+  }
+
+  .content-hero-contact .content-hero-copy,
+  .contact-page #spenden .content-block {
+    padding: 0;
+  }
+
+  .contact-panel div {
+    padding: 24px;
+  }
+
+  .contact-form .form-grid {
+    grid-template-rows: auto auto auto minmax(182px, 1fr);
+  }
+
   body {
     padding-top: 86px;
     font-size: 16px;

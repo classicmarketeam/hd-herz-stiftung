@@ -17,12 +17,12 @@
       rel="stylesheet"
     />
     <script>document.documentElement.classList.add("preview-locked");</script>
-    <link rel="stylesheet" href="styles.css?v=20260911-feedback2-6" />
+    <link rel="stylesheet" href="styles.css?v=20260911-feedback2-10" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script src="scripts.js?v=20260911-active-nav" defer></script>
     <script src="preview-lock.js?v=20260904-lock" defer></script>
   </head>
-  <body>
+  <body class="contact-page">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
     <header class="site-header">
@@ -50,25 +50,27 @@
 
     <main id="main">
       <section class="content-hero content-hero-contact" id="top">
-        <div class="content-hero-media">
-          <img src="assets/images/contact-mothers-group.webp" width="1124" height="1500" alt="Persönliche Begegnung mit Müttern und Partnerinnen in Simbabwe." />
-        </div>
-        <div class="content-hero-copy">
-          <p class="eyebrow">Kontakt</p>
-          <h1>Direkt helfen oder erst einmal sprechen.</h1>
-          <p>
-            Ob Spende, Projektfrage, Kunstinteresse oder ein persönliches Gespräch: Hier sind die
-            wichtigsten Wege zur Herz HD Stiftung gebündelt.
-          </p>
-          <div class="button-row">
-            <a class="button button-dark" href="#spenden">Spendenkonto</a>
-            <a class="button button-ghost-light" href="#kontaktformular">Formular öffnen</a>
+        <div class="section-inner contact-grid">
+          <div class="content-hero-media">
+            <img src="assets/images/contact-mothers-group.webp" width="1124" height="1500" alt="Persönliche Begegnung mit Müttern und Partnerinnen in Simbabwe." />
+          </div>
+          <div class="content-hero-copy">
+            <p class="eyebrow">Kontakt</p>
+            <h1>Direkt helfen oder erst einmal sprechen.</h1>
+            <p>
+              Ob Spende, Projektfrage, Kunstinteresse oder ein persönliches Gespräch: Hier sind die
+              wichtigsten Wege zur Herz HD Stiftung gebündelt.
+            </p>
+            <div class="button-row">
+              <a class="button button-dark" href="#spenden">Spendenkonto</a>
+              <a class="button button-ghost-light" href="#kontaktformular">Formular öffnen</a>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="section" id="kontaktformular">
-        <div class="section-inner contact-layout">
+        <div class="section-inner contact-grid contact-layout">
           <aside class="contact-panel">
             <img class="image-contact-family" src="../assets/images/mother-child-support.webp" alt="Mutter mit Kind in Simbabwe." />
             <div>
@@ -110,7 +112,7 @@
                   <option>Allgemein</option>
                 </select>
               </div>
-              <div class="form-field form-field-full">
+              <div class="form-field form-field-full form-field-message">
                 <label for="nachricht">Nachricht</label>
                 <textarea id="nachricht" name="Nachricht" required></textarea>
               </div>
@@ -131,7 +133,7 @@
       </section>
 
       <section class="section project-cta" id="spenden">
-        <div class="section-inner split">
+        <div class="section-inner contact-grid">
           <div class="content-block content-block-dark">
             <p class="eyebrow">Spenden</p>
             <h2>Jeder Euro kommt direkt in den Projekten an.</h2>
@@ -168,7 +170,7 @@
           </article>
 
           <article class="page-card">
-            <img class="image-contain" src="../assets/images/sculpture.webp" alt="Abstrakte Steinskulptur aus Simbabwe." />
+            <img src="../assets/images/sculpture.webp" alt="Abstrakte Steinskulptur aus Simbabwe." />
             <div>
               <span class="badge">Kunst anfragen</span>
               <h3>Interesse an Werken oder Begegnungen?</h3>
