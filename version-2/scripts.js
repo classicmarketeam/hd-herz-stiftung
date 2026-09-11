@@ -1,6 +1,7 @@
 const header = document.querySelector(".site-header");
 const brandLink = document.querySelector(".brand");
 const navToggle = document.querySelector(".nav-toggle");
+const zimbabweLink = document.querySelector('.site-nav a[href="#simbabwe"]');
 const donationRange = document.querySelector("#donationRange");
 const donationValue = document.querySelector("#donationValue");
 const donationImpact = document.querySelector("#donationImpact");
@@ -29,7 +30,17 @@ function updateHeaderState() {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
 }
 
+function updateSectionNavigation() {
+  if (!zimbabweLink) return;
+  if (window.location.hash === "#simbabwe") {
+    zimbabweLink.setAttribute("aria-current", "location");
+  } else {
+    zimbabweLink.removeAttribute("aria-current");
+  }
+}
+
 updateHeaderState();
+updateSectionNavigation();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
 
 function closeNavigation() {
@@ -62,6 +73,7 @@ brandLink?.addEventListener("click", (event) => {
     event.preventDefault();
     closeNavigation();
     window.history.replaceState(null, "", targetUrl.pathname + targetUrl.search);
+    updateSectionNavigation();
     window.scrollTo({ top: 0, behavior: "auto" });
     updateHeaderState();
   }
@@ -94,6 +106,7 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("hashchange", () => {
+  updateSectionNavigation();
   window.setTimeout(alignHashTarget, 0);
 });
 
