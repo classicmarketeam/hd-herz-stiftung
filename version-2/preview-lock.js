@@ -2,6 +2,22 @@
   const passwordHash = "7425354c48a22a0f835b0ffc56cf52da7fa469e5e2feb160ce9ed018108aaa7b";
   const fallbackPassword = "herz";
   const storageKey = "hd-herz-preview-unlocked";
+  const isEnglish = document.documentElement.lang.startsWith("en");
+  const labels = isEnglish ? {
+    preview: "Client preview",
+    title: "Protected preview",
+    description: "Please enter the password to open the preview.",
+    password: "Password",
+    open: "Open preview",
+    error: "That password is not correct. Please try again.",
+  } : {
+    preview: "Kundenvorschau",
+    title: "Geschützter Entwurf",
+    description: "Bitte Passwort eingeben, um die Vorschau zu öffnen.",
+    password: "Passwort",
+    open: "Vorschau öffnen",
+    error: "Das Passwort stimmt noch nicht.",
+  };
 
   function isRemembered() {
     try {
@@ -55,17 +71,22 @@
 
     overlay.innerHTML = `
       <form class="preview-lock-card">
-        <img src="../assets/images/logo.png" alt="Herz HD Stiftung" />
-        <p class="eyebrow">Kundenvorschau</p>
-        <h1 id="previewLockTitle">Geschützter Entwurf</h1>
-        <p>Bitte Passwort eingeben, um die Vorschau zu öffnen.</p>
-        <label for="previewPassword">Passwort</label>
+        <img alt="Herz HD Stiftung" />
+        <p class="eyebrow">${labels.preview}</p>
+        <h1 id="previewLockTitle">${labels.title}</h1>
+        <p>${labels.description}</p>
+        <label for="previewPassword">${labels.password}</label>
         <input class="preview-lock-input" id="previewPassword" name="previewPassword" type="password" autocomplete="current-password" required />
         <p class="preview-lock-error" aria-live="polite"></p>
-        <button class="button button-dark" type="submit">Vorschau öffnen</button>
+        <button class="button button-dark" type="submit">${labels.open}</button>
       </form>
     `;
 
+    overlay.querySelector("img").src = document.querySelector(".brand img").src;
+    const languageSwitch = document.querySelector(".language-switch");
+    if (languageSwitch) {
+      overlay.querySelector("form").append(languageSwitch.cloneNode(true));
+    }
     document.body.append(overlay);
 
     const form = overlay.querySelector("form");
@@ -79,7 +100,7 @@
         return;
       }
 
-      error.textContent = "Das Passwort stimmt noch nicht.";
+      error.textContent = labels.error;
       input.select();
     });
 

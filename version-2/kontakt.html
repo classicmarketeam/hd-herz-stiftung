@@ -17,10 +17,10 @@
       rel="stylesheet"
     />
     <script>document.documentElement.classList.add("preview-locked");</script>
-    <link rel="stylesheet" href="styles.css?v=20260911-feedback2-10" />
+    <link rel="stylesheet" href="styles.css?v=20260921-language-hover" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script src="scripts.js?v=20260911-active-nav" defer></script>
-    <script src="preview-lock.js?v=20260904-lock" defer></script>
+    <script src="scripts.js?v=20260921-en" defer></script>
+    <script src="preview-lock.js?v=20260921-en" defer></script>
   </head>
   <body class="contact-page">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -44,6 +44,10 @@
       </nav>
 
       <div class="header-actions">
+        <nav class="language-switch" aria-label="Sprache">
+          <a href="kontakt.html" lang="de" hreflang="de" aria-label="Deutsch" aria-current="page" data-language-link>DE</a>
+          <a href="en/contact.html" lang="en" hreflang="en" aria-label="English" data-language-link>EN</a>
+        </nav>
         <a class="button button-primary" href="#spenden">Jetzt spenden</a>
       </div>
     </header>
@@ -155,6 +159,31 @@
               <a class="button button-dark" href="mailto:info@herzhdstiftung.de?subject=Spende%20Herz%20HD%20Stiftung">Spende ankündigen</a>
             </div>
           </div>
+        </div>
+        <div class="section-inner">
+          <div class="donation-calculator" data-donation-calculator aria-label="Spendenorientierung">
+            <div class="donation-copy" aria-live="polite" aria-atomic="true">
+              <p class="eyebrow">Jeder Euro hilft</p>
+              <h3><span data-donation-value>350 €</span> können viel bewegen.</h3>
+              <p class="donation-impact" id="donationImpact" data-donation-impact>Das entspricht ungefähr den Kosten der Schulspeisung von 35 Kindern für ein Schuljahr.</p>
+            </div>
+            <div class="range-field">
+              <div class="donation-controls">
+                <label for="donationRange">Spendenbetrag</label>
+                <div class="donation-amount-field">
+                  <input id="donationAmount" data-donation-amount type="number" inputmode="numeric" min="10" max="7500" step="10" value="350" aria-label="Spendenbetrag in Euro" aria-describedby="donationNote" />
+                  <span aria-hidden="true">€</span>
+                </div>
+              </div>
+              <input id="donationRange" data-donation-range type="range" min="10" max="7500" step="10" value="350" aria-valuetext="350 Euro" aria-describedby="donationImpact donationNote" />
+              <div class="donation-scale" aria-hidden="true"><span>10 €</span><span>7.500 €</span></div>
+            </div>
+          </div>
+          <p class="donation-note" id="donationNote">
+            Die genannten Beträge sind Orientierungswerte auf Basis unserer aktuellen Projektkosten.
+            Tatsächliche Kosten können je nach Schule, Standort und Projekt variieren.
+            Spenden werden dort eingesetzt, wo sie im Rahmen unserer Projekte am dringendsten benötigt werden.
+          </p>
         </div>
       </section>
 

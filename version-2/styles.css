@@ -159,14 +159,34 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
-  min-height: 36px;
+  min-width: 44px;
+  min-height: 44px;
   font-size: 13px;
+  color: inherit;
+}
+
+.language-switch a:hover,
+.language-switch a:focus-visible {
+  background: var(--cream);
+  color: var(--petrol-dark);
 }
 
 .language-switch a[aria-current="page"] {
   background: var(--yellow);
   color: var(--ink);
+}
+
+.language-switch a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -4px;
+  box-shadow: none;
+}
+
+.preview-lock-card .language-switch {
+  display: flex;
+  width: max-content;
+  margin-top: 20px;
+  border-color: var(--border);
 }
 
 .nav-toggle {
@@ -263,6 +283,8 @@ html.preview-locked .site-footer {
   z-index: 1000;
   display: grid;
   place-items: center;
+  align-items: safe center;
+  overflow-y: auto;
   padding: 24px;
   background: rgba(247, 244, 237, 0.78);
   backdrop-filter: blur(12px);
@@ -912,7 +934,13 @@ strong {
   line-height: 1.1;
 }
 
+.donation-card-head small {
+  font-family: var(--body);
+  font-size: 16px;
+}
+
 .donation-card p {
+  flex: 1;
   margin: 24px 0;
   font-size: 16px;
 }
@@ -921,7 +949,7 @@ strong {
   display: grid;
   grid-template-columns: 1fr minmax(260px, 420px);
   gap: 32px;
-  align-items: end;
+  align-items: center;
   margin-top: 42px;
   padding: 32px;
   border-radius: 8px;
@@ -931,6 +959,10 @@ strong {
 
 .donation-calculator .eyebrow {
   color: var(--ink);
+}
+
+.donation-copy {
+  min-height: 202px;
 }
 
 .donation-calculator h3 {
@@ -944,6 +976,21 @@ strong {
 .donation-calculator p {
   margin: 10px 0 0;
   font-size: 16px;
+}
+
+.donation-calculator [data-donation-value] {
+  white-space: nowrap;
+}
+
+.contact-page .donation-calculator {
+  background: var(--cream-light);
+}
+
+.donation-note {
+  margin: 20px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 .donation-calculator label {
@@ -962,6 +1009,60 @@ strong {
   width: 100%;
   min-width: 0;
   accent-color: var(--brown-dark);
+}
+
+.donation-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.donation-controls label {
+  margin: 0;
+}
+
+.donation-amount-field {
+  display: flex;
+  flex: 0 0 144px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(23, 76, 76, 0.4);
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.donation-amount-field input {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 18px;
+}
+
+.donation-amount-field:focus-within {
+  outline: 2px solid var(--petrol);
+  outline-offset: 2px;
+}
+
+.donation-amount-field input:focus-visible {
+  box-shadow: none;
+}
+
+.donation-calculator input[type="range"] {
+  min-height: 44px;
+  margin: 12px 0 0;
+  cursor: pointer;
+}
+
+.donation-scale {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
 }
 
 .work-principles {
@@ -2029,7 +2130,7 @@ strong {
   padding: 32px;
 }
 
-.contact-page #spenden .eyebrow {
+.contact-page #spenden .contact-grid .eyebrow {
   margin: 0 0 12px;
 }
 
@@ -2270,7 +2371,12 @@ img.image-contain,
   }
 
   .site-nav a {
-    padding: 0 9px;
+    padding: 0 8px;
+    font-size: 14px;
+  }
+
+  .header-actions {
+    gap: 8px;
   }
 
   .hero-copy {
@@ -2738,6 +2844,26 @@ img.image-contain,
 
   .donation-calculator {
     padding: 24px;
+  }
+
+  .donation-calculator h3 {
+    font-size: 28px;
+  }
+
+  .donation-copy {
+    min-height: 247px;
+  }
+
+  html:lang(en) .donation-copy {
+    min-height: 256px;
+  }
+
+  .preview-lock-card {
+    padding: 24px;
+  }
+
+  .preview-lock-card h1 {
+    font-size: 32px;
   }
 
   .project-card-featured img,

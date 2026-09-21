@@ -17,10 +17,10 @@
       rel="stylesheet"
     />
     <script>document.documentElement.classList.add("preview-locked");</script>
-    <link rel="stylesheet" href="styles.css?v=20260911-feedback2-10" />
+    <link rel="stylesheet" href="styles.css?v=20260921-language-hover" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-    <script src="scripts.js?v=20260911-active-nav" defer></script>
-    <script src="preview-lock.js?v=20260904-lock" defer></script>
+    <script src="scripts.js?v=20260921-en" defer></script>
+    <script src="preview-lock.js?v=20260921-en" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -44,6 +44,10 @@
       </nav>
 
       <div class="header-actions">
+        <nav class="language-switch" aria-label="Sprache">
+          <a href="index.html" lang="de" hreflang="de" aria-label="Deutsch" aria-current="page" data-language-link>DE</a>
+          <a href="en/index.html" lang="en" hreflang="en" aria-label="English" data-language-link>EN</a>
+        </nav>
         <a class="button button-primary" href="kontakt.html#spenden">Jetzt spenden</a>
       </div>
     </header>
@@ -250,9 +254,9 @@
             <article class="donation-card">
               <div class="donation-card-head">
                 <span>Ein Kind begleiten</span>
-                <strong>20 €</strong>
+                <strong>10 €</strong>
               </div>
-              <p>Ermöglicht einem Kind ein Jahr warme Mahlzeiten und frühe Förderung.</p>
+              <p>Entspricht ungefähr den jährlichen Kosten der Schulspeisung für ein Kind im ECD-Programm.</p>
               <a class="button button-primary" href="kontakt.html#spenden">Jetzt spenden</a>
             </article>
 
@@ -261,16 +265,7 @@
                 <span>Gemeinsam helfen</span>
                 <strong>60 €</strong>
               </div>
-              <p>Versorgt drei Kinder und entlastet Familien wie Schulgemeinschaft.</p>
-              <a class="button button-primary" href="kontakt.html#spenden">Jetzt spenden</a>
-            </article>
-
-            <article class="donation-card">
-              <div class="donation-card-head">
-                <span>Wasser ermöglichen</span>
-                <strong>250 €</strong>
-              </div>
-              <p>Hilft bei Solartechnik, Leitungen und Wasserzugang an Schulen.</p>
+              <p>Entspricht ungefähr den jährlichen Kosten der Schulspeisung für sechs Kinder.</p>
               <a class="button button-primary" href="kontakt.html#spenden">Jetzt spenden</a>
             </article>
 
@@ -279,22 +274,43 @@
                 <span>Eigeninitiative stärken</span>
                 <strong>500 €</strong>
               </div>
-              <p>Bringt Schulen dem nächsten Schritt zu Garten, Wasser und Eigeninitiative näher.</p>
+              <p>Ein wesentlicher Beitrag zu Schulgärten und ersten einkommenschaffenden Projekten, die wir gemeinsam mit Schulen und Kapnek entwickeln.</p>
+              <a class="button button-primary" href="kontakt.html#spenden">Jetzt spenden</a>
+            </article>
+
+            <article class="donation-card">
+              <div class="donation-card-head">
+                <span>Wasser ermöglichen</span>
+                <strong><small>ca.</small> 7.500 €</strong>
+              </div>
+              <p>Eine Spende dieser Größenordnung entspricht ungefähr den durchschnittlichen Kosten eines neuen Schulbrunnens.</p>
               <a class="button button-primary" href="kontakt.html#spenden">Jetzt spenden</a>
             </article>
           </div>
 
-          <div class="donation-calculator" aria-label="Spendenrechner">
-            <div>
+          <div class="donation-calculator" data-donation-calculator aria-label="Spendenorientierung">
+            <div class="donation-copy" aria-live="polite" aria-atomic="true">
               <p class="eyebrow">Jeder Euro hilft</p>
-              <h3><span id="donationValue">60 €</span> können viel bewegen.</h3>
-              <p id="donationImpact">Damit erhalten drei Kinder ein Jahr lang tägliche Schulspeisung.</p>
+              <h3><span data-donation-value>350 €</span> können viel bewegen.</h3>
+              <p class="donation-impact" id="donationImpact" data-donation-impact>Das entspricht ungefähr den Kosten der Schulspeisung von 35 Kindern für ein Schuljahr.</p>
             </div>
             <div class="range-field">
-              <label for="donationRange">Spendenbetrag</label>
-              <input id="donationRange" type="range" min="20" max="500" step="10" value="60" />
+              <div class="donation-controls">
+                <label for="donationRange">Spendenbetrag</label>
+                <div class="donation-amount-field">
+                  <input id="donationAmount" data-donation-amount type="number" inputmode="numeric" min="10" max="7500" step="10" value="350" aria-label="Spendenbetrag in Euro" aria-describedby="donationNote" />
+                  <span aria-hidden="true">€</span>
+                </div>
+              </div>
+              <input id="donationRange" data-donation-range type="range" min="10" max="7500" step="10" value="350" aria-valuetext="350 Euro" aria-describedby="donationImpact donationNote" />
+              <div class="donation-scale" aria-hidden="true"><span>10 €</span><span>7.500 €</span></div>
             </div>
           </div>
+          <p class="donation-note" id="donationNote">
+            Die genannten Beträge sind Orientierungswerte auf Basis unserer aktuellen Projektkosten.
+            Tatsächliche Kosten können je nach Schule, Standort und Projekt variieren.
+            Spenden werden dort eingesetzt, wo sie im Rahmen unserer Projekte am dringendsten benötigt werden.
+          </p>
         </div>
       </section>
 
