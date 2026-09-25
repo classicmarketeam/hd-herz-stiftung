@@ -2347,6 +2347,17 @@ img.image-contain,
   padding: 16px;
 }
 
+.page-card img.image-founders,
+.foundation-card img.image-founders {
+  object-position: 50% 18%;
+}
+
+.profile-card img.image-arnd {
+  padding: 0;
+  object-fit: cover;
+  object-position: 75% 35%;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .site-header, .brand img { transition: none; }
