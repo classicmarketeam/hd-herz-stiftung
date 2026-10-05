@@ -1,3 +1,58 @@
+/* Self-hosted Latin fonts; licenses are included in assets/fonts. */
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/lora-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/lora-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/source-sans-3-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/source-sans-3-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/source-sans-3-italic-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/source-sans-3-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --petrol: #174c4c;
   --petrol-dark: #103737;
@@ -20,8 +75,8 @@
   --white: #ffffff;
   --border: #dce2dd;
   --shadow: 0 12px 30px rgba(38, 51, 51, 0.08);
-  --heading: "Alexandria", Georgia, serif;
-  --body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --heading: "Lora", Georgia, serif;
+  --body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -307,11 +362,11 @@ html.preview-locked .site-footer {
   margin-bottom: 26px;
 }
 
-.preview-lock-card h1 {
+.preview-lock-card h2 {
   margin: 0;
   font-family: var(--heading);
   font-size: 42px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.12;
 }
 
@@ -392,19 +447,25 @@ html.preview-locked .site-footer {
 .site-footer h2 {
   margin: 0;
   font-family: var(--heading);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .hero-copy h1 {
   max-width: 620px;
   color: var(--ink);
+  font-weight: 700;
   font-size: 52px;
   line-height: 1.16;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  font-weight: 600;
   overflow-wrap: normal;
   word-break: normal;
   hyphens: manual;
@@ -427,8 +488,10 @@ strong {
 .eyebrow {
   margin: 0 0 12px;
   color: var(--red-dark);
+  font-family: var(--heading);
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -466,7 +529,7 @@ strong {
   display: block;
   font-family: var(--heading);
   font-size: 23px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -522,7 +585,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 36px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.12;
 }
 
@@ -555,7 +618,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -871,7 +934,7 @@ strong {
   display: block;
   font-family: var(--heading);
   font-size: 26px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -930,7 +993,7 @@ strong {
   margin-top: 8px;
   font-family: var(--heading);
   font-size: 42px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.1;
 }
 
@@ -969,7 +1032,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1110,7 +1173,7 @@ strong {
   margin: 22px 0 0;
   font-family: var(--heading);
   font-size: 26px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1410,7 +1473,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
 }
 
@@ -1484,7 +1547,7 @@ strong {
   margin: 18px 0 0;
   font-family: var(--heading);
   font-size: 26px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1531,7 +1594,7 @@ strong {
   margin: 0 0 16px;
   font-family: var(--heading);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1560,7 +1623,7 @@ strong {
   display: block;
   font-family: var(--heading);
   font-size: 30px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1674,7 +1737,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 21px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1926,7 +1989,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.1;
 }
 
@@ -1939,6 +2002,16 @@ strong {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+
+.section-group-heading {
+  grid-column: 1 / -1;
+  margin-bottom: 16px;
+}
+
+.section-group-heading h2 {
+  font-size: 36px;
+  line-height: 1.2;
 }
 
 .page-card {
@@ -1962,7 +2035,7 @@ strong {
   margin: 16px 0 0;
   font-family: var(--heading);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -2003,7 +2076,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 26px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -2098,7 +2171,7 @@ strong {
   margin: 0;
   font-family: var(--heading);
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -2177,11 +2250,11 @@ strong {
 
 .contact-panel h2,
 .contact-form h2,
-.bank-card h2 {
+.bank-card h3 {
   margin: 0;
   font-family: var(--heading);
   font-size: 32px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -2414,6 +2487,7 @@ img.image-contain,
     font-size: 42px;
   }
 
+  .section-group-heading h2,
   .section-intro h2,
   .section-heading-centered h2,
   .content-block h2,
@@ -2754,6 +2828,7 @@ img.image-contain,
     padding: 0 16px;
   }
 
+  .section-group-heading h2,
   .section-intro h2,
   .section-heading-centered h2,
   .content-block h2,
@@ -2873,7 +2948,7 @@ img.image-contain,
     padding: 24px;
   }
 
-  .preview-lock-card h1 {
+  .preview-lock-card h2 {
     font-size: 32px;
   }
 

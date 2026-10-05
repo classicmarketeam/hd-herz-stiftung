@@ -73,7 +73,7 @@
       <form class="preview-lock-card">
         <img alt="Herz HD Stiftung" />
         <p class="eyebrow">${labels.preview}</p>
-        <h1 id="previewLockTitle">${labels.title}</h1>
+        <h2 id="previewLockTitle">${labels.title}</h2>
         <p>${labels.description}</p>
         <label for="previewPassword">${labels.password}</label>
         <input class="preview-lock-input" id="previewPassword" name="previewPassword" type="password" autocomplete="current-password" required />
