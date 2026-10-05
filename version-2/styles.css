@@ -483,6 +483,7 @@ strong {
 .hero-copy p:not(.eyebrow) {
   max-width: 640px;
   margin: 24px 0 0;
+  font-size: 20px;
 }
 
 .eyebrow {
@@ -491,13 +492,14 @@ strong {
   font-family: var(--heading);
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: 0.08em;
   line-height: 1.5;
   text-transform: uppercase;
 }
 
 .hero .eyebrow {
   color: var(--ink);
+  font-size: 16px;
 }
 
 .principle-strip {
@@ -658,9 +660,9 @@ strong {
   border-radius: 8px;
   background: var(--green);
   color: var(--white);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.45;
 }
 
 .mini-facts span:nth-child(2) {
@@ -2069,6 +2071,7 @@ strong {
   color: var(--red-dark);
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -2816,6 +2819,10 @@ img.image-contain,
 
   .hero-copy h1 {
     font-size: 36px;
+  }
+
+  .hero-copy p:not(.eyebrow) {
+    font-size: 18px;
   }
 
   .subpage-hero-copy h1 {
