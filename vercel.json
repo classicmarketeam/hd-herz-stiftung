@@ -1,0 +1,564 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node scripts/build-site.cjs",
+  "outputDirectory": "dist",
+  "cleanUrls": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "herzhdstiftung.de"
+        }
+      ],
+      "destination": "https://www.herzhdstiftung.de/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/version-2/:path*",
+      "destination": "/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2794"
+        }
+      ],
+      "destination": "/aktuelles/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2795"
+        }
+      ],
+      "destination": "/projekte.html#wasser",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2796"
+        }
+      ],
+      "destination": "/aktuelles/fowlrun/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2797"
+        }
+      ],
+      "destination": "/aktuelles/msr-300/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2798"
+        }
+      ],
+      "destination": "/aktuelles/presse/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2799"
+        }
+      ],
+      "destination": "/aktuelles/reisebericht-2024/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2800"
+        }
+      ],
+      "destination": "/aktuelles/reisebericht-2025/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2801"
+        }
+      ],
+      "destination": "/aktuelles/sammelaktion/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2802"
+        }
+      ],
+      "destination": "/kontakt.html#spenden",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2803"
+        }
+      ],
+      "destination": "/bank-q-rcode/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2804"
+        }
+      ],
+      "destination": "/datenschutz.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2805"
+        }
+      ],
+      "destination": "/impressum.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2807"
+        }
+      ],
+      "destination": "/lungu-qr-code-2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2808"
+        }
+      ],
+      "destination": "/lungu-qr-code-lioba1/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2809"
+        }
+      ],
+      "destination": "/lungu-qr-code-lioba2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2806"
+        }
+      ],
+      "destination": "/lungu-qr-code/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2810"
+        }
+      ],
+      "destination": "/kunst.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2811"
+        }
+      ],
+      "destination": "/kunst.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2812"
+        }
+      ],
+      "destination": "/mit-kunst-helfen/tengenenge/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2813"
+        }
+      ],
+      "destination": "/projekte.html#partner",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2814"
+        }
+      ],
+      "destination": "/projekte.html#partner",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2815"
+        }
+      ],
+      "destination": "/partner-vor-ort-alte-seite/dominikanische-schwestern/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2816"
+        }
+      ],
+      "destination": "/shona-aktion-q-rcode/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2817"
+        }
+      ],
+      "destination": "/shona-aktion-q-rcode2/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2818"
+        }
+      ],
+      "destination": "/shona-aktion-q-rcode3/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2819"
+        }
+      ],
+      "destination": "/shona-aktion-q-rcode4/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2820"
+        }
+      ],
+      "destination": "/shona-aktion-q-rcode5/",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2821"
+        }
+      ],
+      "destination": "/stiftung.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2822"
+        }
+      ],
+      "destination": "/index.html#simbabwe",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2823"
+        }
+      ],
+      "destination": "/kontakt.html#spenden",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2824"
+        }
+      ],
+      "destination": "/projekte.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "p",
+          "value": "2825"
+        }
+      ],
+      "destination": "/stiftung.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/aktuelles/brunnenprojekte",
+      "destination": "/projekte.html#wasser",
+      "statusCode": 301
+    },
+    {
+      "source": "/aktuelles/brunnenprojekte/",
+      "destination": "/projekte.html#wasser",
+      "statusCode": 301
+    },
+    {
+      "source": "/aktuelles/vom-flyer",
+      "destination": "/kontakt.html#spenden",
+      "statusCode": 301
+    },
+    {
+      "source": "/aktuelles/vom-flyer/",
+      "destination": "/kontakt.html#spenden",
+      "statusCode": 301
+    },
+    {
+      "source": "/datenschutzerklarung",
+      "destination": "/datenschutz.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/datenschutzerklarung/",
+      "destination": "/datenschutz.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/impressum",
+      "destination": "/impressum.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/impressum/",
+      "destination": "/impressum.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/mit-kunst-helfen",
+      "destination": "/kunst.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/mit-kunst-helfen/",
+      "destination": "/kunst.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/mit-kunst-helfen/kunst-als-bruecke",
+      "destination": "/kunst.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/mit-kunst-helfen/kunst-als-bruecke/",
+      "destination": "/kunst.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/partner-vor-ort-1",
+      "destination": "/projekte.html#partner",
+      "statusCode": 301
+    },
+    {
+      "source": "/partner-vor-ort-1/",
+      "destination": "/projekte.html#partner",
+      "statusCode": 301
+    },
+    {
+      "source": "/partner-vor-ort-alte-seite",
+      "destination": "/projekte.html#partner",
+      "statusCode": 301
+    },
+    {
+      "source": "/partner-vor-ort-alte-seite/",
+      "destination": "/projekte.html#partner",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung",
+      "destination": "/stiftung.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/",
+      "destination": "/stiftung.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/simbabwe",
+      "destination": "/index.html#simbabwe",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/simbabwe/",
+      "destination": "/index.html#simbabwe",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/spenden",
+      "destination": "/kontakt.html#spenden",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/spenden/",
+      "destination": "/kontakt.html#spenden",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/stiftungsarbeit",
+      "destination": "/projekte.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/stiftungsarbeit/",
+      "destination": "/projekte.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/uber-uns",
+      "destination": "/stiftung.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/stiftung/uber-uns/",
+      "destination": "/stiftung.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/wp-sitemap-posts-page-1.xml",
+      "destination": "/sitemap.xml",
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

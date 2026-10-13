@@ -1,0 +1,53 @@
+CCM19 – Herz HD Stiftung
+Stand: 13. Oktober 2026
+
+UMGESETZT
+- Bestehendes eRecht24-Projekt im Experten-Modus eingerichtet.
+  Nicht in den einfachen Modus zurückwechseln: Einstellungen könnten überschrieben werden.
+- Domain-ID: 6ace022964da4f92d9024f52
+- Web3Forms-Einbindung-ID: 6ace15dccf7226135505b8e2
+- CCM19 technisch notwendig; WordPress.org deaktiviert, nicht gelöscht.
+- Web3Forms optional, Kategorie im Frontend „Kontaktformular“ / „Contact form“.
+- Dienstbeschreibungen, Einwilligungsgrundlage und Bannertexte DE/EN angepasst.
+- Design Creme #f7f4ed, Text #263333, Buttons/Links #174c4c.
+  Zustimmung/Ablehnung gleich gestaltet. Banner unten, nicht seitenblockierend.
+- DE/EN aktiv; Sprache automatisch aus html lang.
+- Rechtstextlinks für Live-Domain verifiziert:
+  /impressum.html, /datenschutz.html,
+  /en/legal-notice.html, /en/privacy-policy.html.
+- Local Storage als Consent-Speicher, automatisches Zurücksetzen bei relevanten Änderungen aktiv.
+- Einbindungscode früh im head aller 16 neuen Seiten ergänzt.
+- Footerlinks zum erneuten Öffnen auf allen Seiten; CCM19 in Datenschutzhinweisen ergänzt.
+- Kontaktformular nutzt CCM.acceptedEmbeddings und CCM.consent vor jedem Versand.
+  Bei fehlender Einwilligung oder fehlendem CCM19 bleibt Versand gesperrt.
+  Formular method=dialog verhindert native Netzwerkübermittlung ohne JavaScript.
+  Der Versand erfolgt ausschließlich im abgesicherten JS-Handler. E-Mail-Link als Alternative.
+- Keine neuen Tracker, Werbedienste oder externen Iframes hinzugefügt.
+  Schriften, Medien, Kartenabbildung und Lucide lokal.
+
+VERIFIZIERT
+- Browser auf localhost: DE/EN-Banner, Sprachzuordnung, Rechtstextlinks,
+  Ablehnung, Zustimmung, Einzelzustimmung, erneutes Öffnen und Widerruf.
+  Senden-Schaltfläche wird passend gesperrt/freigegeben.
+- Offline-Tests (node --test tests/contact-form.test.cjs): Zustimmungsprüfung,
+  Fremd-Dienstzustimmung, Widerruf, CCM-Ausfall, Netzwerkfehler, Erfolg,
+  Timeout, Duplikatschutz, Honeypot und Integration aller 16 Seiten.
+- Keine echte Testmail versandt; Zustellung an info@herzhdstiftung.de noch nicht verifiziert.
+- CCM19 AVV: Nutzer hat am 13. Oktober 2026 bestätigt, dass bereits ein AVV
+  mit CCM19 besteht. Kein erneuter Vertragsabschluss als offener Punkt geführt.
+  Die leere Zustimmungsliste im geöffneten Zugang widerlegt diese Bestätigung nicht.
+
+VOR LIVEGANG OFFEN
+- Web3Forms-Vertrags-/Drittlandtransfer-Voraussetzungen und vollständige Rechtstexte
+  durch Verantwortlichen prüfen. Bannerzustimmung allein ersetzt dies nicht.
+- Echte Testnachricht nur nach ausdrücklicher Versandfreigabe.
+- Finale Produktionsbereitstellung, Domain/DNS, Pfade ohne version-2,
+  Redirects, noindex/Vorschauschutz getrennt abschließen.
+  Kein Produktionsdeploy und keine DNS-Änderung in diesem Arbeitsschritt.
+- Nach Deployment Test unter echter Domain wiederholen (Banner, Links, Formular, Hosting).
+
+QUELLEN
+https://docs.ccm19.com/integrationen/ccm19-standard/
+https://docs.ccm19.com/api/javascript-apis/
+https://web3forms.com/privacy
+https://web3forms.com/dpa

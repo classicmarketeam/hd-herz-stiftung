@@ -1,0 +1,65 @@
+# ENTWURF: 13 eindeutige Altseiten; 19 Inhaltsentscheidungen sind noch offen.
+# Nicht als vollständige Produktionskonfiguration verwenden.
+# Für Apache 2.4 / mod_rewrite im Domain-Hauptverzeichnis.
+# IONOS-Paket und vorhandene .htaccess vor Einsatz prüfen; bestehende Regeln zusammenführen.
+# Erst beim Cutover aktivieren, sobald alle Ziele ohne /version-2 erreichbar sind.
+# Dauerhafte 301-Weiterleitungen; Vorschau bleibt unverändert.
+RewriteEngine On
+
+# Exakte Altpfade, jeweils mit und ohne abschließenden Slash.
+# Normale Query-Parameter bleiben erhalten; NE erhält Ziel-Fragmente wie #spenden.
+RewriteRule ^stiftung/?$ https://www.herzhdstiftung.de/stiftung.html [R=301,L,NE]
+RewriteRule ^stiftung/uber\-uns/?$ https://www.herzhdstiftung.de/stiftung.html [R=301,L,NE]
+RewriteRule ^stiftung/simbabwe/?$ https://www.herzhdstiftung.de/index.html#simbabwe [R=301,L,NE]
+RewriteRule ^stiftung/spenden/?$ https://www.herzhdstiftung.de/kontakt.html#spenden [R=301,L,NE]
+RewriteRule ^stiftung/stiftungsarbeit/?$ https://www.herzhdstiftung.de/projekte.html [R=301,L,NE]
+RewriteRule ^partner\-vor\-ort\-1/?$ https://www.herzhdstiftung.de/projekte.html#partner [R=301,L,NE]
+RewriteRule ^partner\-vor\-ort\-alte\-seite/?$ https://www.herzhdstiftung.de/projekte.html#partner [R=301,L,NE]
+RewriteRule ^mit\-kunst\-helfen/?$ https://www.herzhdstiftung.de/kunst.html [R=301,L,NE]
+RewriteRule ^mit\-kunst\-helfen/kunst\-als\-bruecke/?$ https://www.herzhdstiftung.de/kunst.html [R=301,L,NE]
+RewriteRule ^aktuelles/brunnenprojekte/?$ https://www.herzhdstiftung.de/projekte.html#wasser [R=301,L,NE]
+RewriteRule ^aktuelles/vom\-flyer/?$ https://www.herzhdstiftung.de/kontakt.html#spenden [R=301,L,NE]
+RewriteRule ^impressum/?$ https://www.herzhdstiftung.de/impressum.html [R=301,L,NE]
+RewriteRule ^datenschutzerklarung/?$ https://www.herzhdstiftung.de/datenschutz.html [R=301,L,NE]
+
+# Beobachtete WordPress-Kurzlinks. Nur auf Root oder index.php anwenden.
+# QSD entfernt die alte WordPress-Abfrage einschließlich weiterer Query-Parameter.
+# Nicht zugeordnete IDs bleiben bewusst ohne Regel.
+RewriteCond %{QUERY_STRING} (^|&)p=2795(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/projekte.html#wasser [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2802(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/kontakt.html#spenden [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2804(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/datenschutz.html [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2805(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/impressum.html [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2810(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/kunst.html [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2811(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/kunst.html [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2813(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/projekte.html#partner [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2814(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/projekte.html#partner [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2821(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/stiftung.html [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2822(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/index.html#simbabwe [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2823(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/kontakt.html#spenden [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2824(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/projekte.html [R=301,L,NE,QSD]
+
+RewriteCond %{QUERY_STRING} (^|&)p=2825(&|$)
+RewriteRule ^(?:index\.php)?$ https://www.herzhdstiftung.de/stiftung.html [R=301,L,NE,QSD]

@@ -12,3 +12,12 @@
 # Local scratch/export files.
 *.log
 /Sicherungen/
+.vercel
+
+/dist/
+/Austausch HD Herz.vtt
+/Austausch HD Herz-20260723_163317-Besprechungsaufzeichnung.mp4
+/Feedback2/
+/Herz Fotos/
+/aenderungsuebersicht-hd-herz-20260723.md
+!legacy/**/*.pdf

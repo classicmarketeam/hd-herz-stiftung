@@ -2,6 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="utf-8" />
+    <script src="https://cloud.ccm19.de/app.js?apiKey=c74d4f8f64d49bbb61021e57904ba3177286323c3ea53db5&amp;domain=6ace022964da4f92d9024f52" referrerpolicy="origin"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kontakt & Spenden | Herz HD Stiftung</title>
     <meta
@@ -11,10 +12,11 @@
     <meta name="robots" content="noindex, nofollow, noarchive, noimageindex, nosnippet" />
     <link rel="icon" href="../assets/images/favicon.png" />
     <script>document.documentElement.classList.add("preview-locked");</script>
-    <link rel="stylesheet" href="styles.css?v=20261005-uppercase-spacing" />
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261013-ccm19" />
+    <script src="assets/vendor/lucide/lucide-1.56.0.min.js" defer></script>
     <script src="scripts.js?v=20260921-en" defer></script>
     <script src="preview-lock.js?v=20261005-typography" defer></script>
+    <script src="contact-form.js?v=20261013-ccm19" defer></script>
   </head>
   <body class="contact-page">
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -84,25 +86,24 @@
             </div>
           </aside>
 
-          <form
-            class="contact-form"
-            action="mailto:info@herzhdstiftung.de?subject=Kontakt%20Herz%20HD%20Stiftung"
-            method="post"
-            enctype="text/plain"
-          >
+          <form class="contact-form" method="dialog" data-contact-form aria-describedby="form-privacy">
+            <input type="hidden" name="access_key" value="fef67a86-2f9c-4757-b485-b29daa54572d" />
+            <input type="hidden" name="subject" value="Kontaktanfrage – Herz HD Stiftung" />
+            <input type="hidden" name="from_name" value="Herz HD Stiftung Website" />
+            <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off" aria-hidden="true" />
             <h2>Nachricht senden</h2>
             <div class="form-grid">
               <div class="form-field">
                 <label for="name">Name</label>
-                <input id="name" name="Name" autocomplete="name" required />
+                <input id="name" name="name" autocomplete="name" required />
               </div>
               <div class="form-field">
                 <label for="email">E-Mail</label>
-                <input id="email" name="E-Mail" type="email" autocomplete="email" required />
+                <input id="email" name="email" type="email" autocomplete="email" required />
               </div>
               <div class="form-field form-field-full">
                 <label for="anliegen">Anliegen</label>
-                <select id="anliegen" name="Anliegen">
+                <select id="anliegen" name="topic">
                   <option>Spende</option>
                   <option>Projektfrage</option>
                   <option>Kunst</option>
@@ -112,18 +113,22 @@
               </div>
               <div class="form-field form-field-full form-field-message">
                 <label for="nachricht">Nachricht</label>
-                <textarea id="nachricht" name="Nachricht" required></textarea>
+                <textarea id="nachricht" name="message" required></textarea>
               </div>
             </div>
+            <p class="source-note" data-form-consent>Bitte erlauben Sie „Kontaktformular“ in den <a href="#CCM.openControlPanel">Datenschutzeinstellungen</a>, um eine Nachricht zu senden. Alternativ schreiben Sie an <a href="mailto:info@herzhdstiftung.de">info@herzhdstiftung.de</a>.</p>
+            <noscript><p>Das Kontaktformular benötigt JavaScript. Bitte kontaktieren Sie uns per E-Mail.</p></noscript>
             <div class="button-row">
-              <button class="button button-primary" type="submit">
-                Nachricht vorbereiten
+              <button class="button button-primary" type="submit" disabled data-form-submit>
+                <span data-submit-label>Nachricht senden</span>
                 <i data-lucide="send"></i>
               </button>
             </div>
-            <p class="source-note">
-              Ihre Nachricht wird in Ihrem E-Mail-Programm vorbereitet. Dort können Sie sie
-              prüfen und absenden. Sie können uns auch direkt an
+            <p data-form-status role="status" aria-live="polite" aria-atomic="true" hidden></p>
+            <p class="source-note" id="form-privacy">
+              Ihre Nachricht wird über Web3Forms versendet. Informationen zur Verarbeitung Ihrer Daten finden Sie in unserer
+              <a href="datenschutz.html#contact-form">Datenschutzerklärung</a>.
+              Sie können uns auch direkt an
               <a href="mailto:info@herzhdstiftung.de">info@herzhdstiftung.de</a> schreiben.
             </p>
           </form>
@@ -251,8 +256,9 @@
       <div class="footer-bottom">
         <span>© 2026 Herz HD Stiftung. Alle Rechte vorbehalten.</span>
         <div>
-          <a href="https://www.herzhdstiftung.de/datenschutzerklarung/">Datenschutz</a>
-          <a href="https://www.herzhdstiftung.de/impressum/">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="#CCM.openWidget">Datenschutzeinstellungen</a>
+          <a href="impressum.html">Impressum</a>
           <a href="#kontaktformular">Kontaktformular</a>
         </div>
       </div>
