@@ -1,3 +1,8 @@
+AKTUELLER VERÖFFENTLICHUNGSSTAND: siehe livegang-status.txt.
+Der folgende Bericht dokumentiert die ursprüngliche URL-Prüfung; die Veröffentlichung
+erfolgt jetzt über Vercel. 19 Altseiten sind als Archiv erhalten, die Redirects stehen
+in vercel.json. Die .htaccess-Datei bleibt nur ein historischer Entwurf.
+
 URL-Prüfung für den Livegang der Herz HD Stiftung
 Stand: 13. Oktober 2026
 

@@ -1,0 +1,50 @@
+Livegang – Stand 13. Oktober 2026
+
+VERÖFFENTLICHT
+- Vercel-Projekt: classicmarketeams-projects/hd-herz-stiftung
+- Erreichbar: https://hd-herz-stiftung.vercel.app/
+- Deployment: dpl_H31hv5usqYzhRW76NM3Cnnza3Yv9
+- Website-Commit auf GitHub main: 638037e
+- 16 neue Seiten im Domain-Hauptverzeichnis; 19 Altseiten als gekennzeichnetes Archiv
+  unter bisherigen Pfaden. Archivierung als vorläufige Erhaltungsstrategie mitgeteilt.
+- 13 zugeordnete Altseiten als 301, 32 ?p=ID-Kurzlinks, Sitemap-Weiterleitungen,
+  Redirect /version-2/* und Hauptdomain-Redirect non-www -> www konfiguriert.
+- 79 öffentliche HTTP-Prüfungen bestanden. 404 liefert HTTP 404.
+- 13 Formular-/CCM-Tests bestanden; veröffentlichte Einwilligungssteuerung auch im Browser geprüft.
+- Alle neuen Seiten ohne Vorschausperre/noindex; Sitemap, robots.txt und Canonicals vorhanden.
+- Bisherige IONOS-Website wurde nicht geändert oder gelöscht.
+
+NOCH NICHT UMGESTELLT
+- DNS für herzhdstiftung.de und www.herzhdstiftung.de unverändert auf IONOS.
+- IONOS-Sitzung ist beim Öffnen der Bearbeitung abgelaufen; erneute Anmeldung durch Nutzer angefragt.
+- Domains in Vercel bereits zugeordnet. CLI nennt A 76.76.21.21 für @ und www.
+  Vor Änderung nochmals aktuelle Vercel-Empfehlung prüfen.
+- Alte AAAA-Einträge dürfen nach IPv4-Umstellung nicht weiter zur alten Website zeigen.
+  IONOS-Verknüpfung „MyWebsite NOW Customer Domain“ kontrolliert umstellen;
+  Inhalte des alten Baukastens erhalten. MX smtp.google.com und andere Mail-Einträge erhalten.
+- Erst nach DNS-Umstellung Zertifikate, www/non-www, HTTP/HTTPS, Redirects und Formular
+  unter der tatsächlichen Domain erneut prüfen.
+
+RÜCKFRAGEN
+- Datenschutzadresse: Alttext nennt Oakland, Impressum Heidelberg. Nutzerantwort angefragt;
+  bisherige Angabe bis zur Antwort nicht eigenmächtig ersetzt.
+- Versand einer Testmail an info@herzhdstiftung.de angefragt, noch keine Freigabe/kein Versand.
+- Dauerhafte GitHub-Vercel-Verbindung nicht eingerichtet. Automatische Freigabeprüfung hat
+  diese Integration wegen laufender automatischer Veröffentlichungen abgelehnt.
+  Gesonderte Zustimmung für automatische Deployments von main wurde angefragt.
+  Einmalige Veröffentlichung erfolgt per Vercel-CLI.
+- Vorhandener CCM19-AVV wurde vom Nutzer bestätigt.
+
+LOKALE SICHERUNGEN (nicht in GitHub)
+Sicherungen/livegang-20261013/repository.bundle
+Sicherungen/livegang-20261013/public/ (33 HTML-Seiten und 152 Dateien, ohne Downloadfehler)
+Sicherungen/livegang-20261013/dns-before.txt
+Sicherungen/livegang-20261013/deployment-check.json
+Die öffentliche Sicherung ist kein vollständiger CMS-/Datenbankexport.
+
+BEFEHLE
+node scripts/build-site.cjs
+python3 scripts/check-site.py
+node --test tests/contact-form.test.cjs
+python3 scripts/check-deployment.py https://hd-herz-stiftung.vercel.app
+vercel deploy --prod --yes --scope classicmarketeams-projects
