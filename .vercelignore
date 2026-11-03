@@ -6,8 +6,9 @@ Feedback2
 Herz Fotos
 Fotos
 Fotos.zip
-Videos
-Videos 2
+# Exclude raw footage only at the project root, not assets/videos.
+/Videos
+/Videos 2
 Videos.zip
 Austausch HD Herz-20260723_163317-Besprechungsaufzeichnung.mp4
 Austausch HD Herz.docx

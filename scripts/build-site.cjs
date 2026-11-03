@@ -22,6 +22,15 @@ for(const dir of ['', 'en']) {
       .replace(/\s*<script>document.documentElement.classList.add\("preview-locked"\);<\/script>/g,'')
       .replace(/\s*<script[^>]*src="[^"]*preview-lock\.js[^>]*><\/script>/g,'');
     html=html.replaceAll(dir ? '../../assets/' : '../assets/', '/shared-assets/');
+    // Fail the deployment if an upload exclusion removed a referenced video.
+    for (const match of html.matchAll(/<source\b[^>]*\bsrc="([^"]+)"/g)) {
+      if (/^https?:\/\//.test(match[1])) continue;
+      const mediaPath=decodeURIComponent(match[1].split(/[?#]/)[0]);
+      const target=mediaPath.startsWith('/') ? path.join(out,mediaPath) : path.resolve(out,dir,mediaPath);
+      if (!fs.existsSync(target) || fs.statSync(target).size===0) {
+        throw new Error(`Missing media in ${dir}/${file}: ${match[1]}`);
+      }
+    }
     const url='/' + (dir ? dir+'/' : '') + (file==='index.html' ? '' : file);
     html=html.replace('</head>',`    <link rel="canonical" href="${origin}${url}" />\n  </head>`);
     fs.writeFileSync(path.join(out,dir,file),html);
